@@ -13,10 +13,17 @@ struct FirstTabScreen: View {
     @Binding var tabSelection: Int
     
     var body: some View {
-        Button("Open Second Screen") {
-//            self.tabSelection = 1
-            self.itemsForSecondScreen.selectedTab = "ThirdItem"
+        
+        VStack {
+            
+            ActivityView()
+            
+            Button("Open Second Screen") {
+                //            self.tabSelection = 1
+                self.itemsForSecondScreen.selectedTab = "ThirdItem"
+            }
         }
+        
     }
 }
 
