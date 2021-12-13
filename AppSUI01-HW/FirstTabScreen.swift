@@ -9,20 +9,19 @@ import SwiftUI
 
 struct FirstTabScreen: View {
     
-//    @EnvironmentObject var sec: SecondTabScreen
+    @EnvironmentObject var itemsForSecondScreen: ItemsForSecondScreen
+    @Binding var tabSelection: Int
     
     var body: some View {
-        
-        Text("text")
-        
-//        Button("Open Second Screen") {
-//            <#code#>
-//        }
+        Button("Open Second Screen") {
+//            self.tabSelection = 1
+            self.itemsForSecondScreen.selectedTab = "ThirdItem"
+        }
     }
 }
 
 struct FirstTabScreen_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTabScreen()
+        FirstTabScreen(tabSelection: .constant(1))
     }
 }

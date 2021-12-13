@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         
         TabView(selection: $selection) {
-            FirstTabScreen()
+            FirstTabScreen(tabSelection: .constant(1))
                 .tabItem {
                     Label("FirstTabScreen", systemImage: "person.fill")
                 }

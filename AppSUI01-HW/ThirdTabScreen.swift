@@ -16,10 +16,10 @@ struct ThirdTabScreen: View {
             isItemForThirdScreenShowed.toggle()
         } label: {
             Label("GO", systemImage: "cursorarrow.click")
-        }.sheet(isPresented: $isItemForThirdScreenShowed) {
+        }
+        .sheet(isPresented: $isItemForThirdScreenShowed) {
             ItemForThirdScreen()
         }
-
     }
 }
 

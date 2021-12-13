@@ -13,6 +13,8 @@ struct Item: Identifiable {
 }
 
 final class ItemsForSecondScreen: ObservableObject {
+    
+    @Published var selectedTab: String? = nil
     @Published private(set) var items = [
         Item(name: "FirstItem"),
         Item(name: "SecondItem"),
@@ -36,11 +38,10 @@ struct ItemList: View {
     var body: some View {
         List {
             ForEach(itemsForSecondScreen.items) { item in
-                NavigationLink {
-                    ItemView(title: item.name)
-                } label: {
-                    Label(item.name, systemImage: "person.2.wave.2.fill")
-                }
+                NavigationLink(tag: item.name,
+                               selection: $itemsForSecondScreen.selectedTab,
+                               destination: { ItemView(title: item.name) },
+                               label: { Label(item.name, systemImage: "person.2.wave.2.fill") })
             }
         }
     }
