@@ -22,13 +22,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("SecondTabScreen", systemImage: "person.2.fill")
                 }
-                .tag(0)
+                .tag(1)
             
             ThirdTabScreen()
                 .tabItem {
                     Label("ThirdTabScreen", systemImage: "person.3.fill")
                 }
-                .tag(0)
+                .tag(2)
         }
     }
 }

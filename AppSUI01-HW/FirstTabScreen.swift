@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FirstTabScreen: View {
     
-    @EnvironmentObject var itemsForSecondScreen: ItemsViewModel
+    @EnvironmentObject var itemsViewModel: ItemsViewModel
     @Binding var tabSelection: Int
     
     var body: some View {
@@ -20,7 +20,7 @@ struct FirstTabScreen: View {
             
             Button("Open Second Screen") {
                 self.tabSelection = 1
-                self.itemsForSecondScreen.selectedTab = "ThirdItem"
+                self.itemsViewModel.selectedTab = "FirstItem"
             }
         }
         

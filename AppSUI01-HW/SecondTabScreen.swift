@@ -51,12 +51,12 @@ struct SecondTabScreen: View {
     
     private var title: String = "SecondTabScreen"
     
-    @ObservedObject var itemsForSecondScreen: ItemsForSecondScreen = .init()
+    @ObservedObject var itemsForSecondScreen: ItemsViewModel = .init()
     
     var body: some View {
         NavigationView() {
             ItemList()
-                .environmentObject(itemsForSecondScreen)
+                .environmentObject(ItemsViewModel())
                 .navigationBarTitle(title)
         }
     }
@@ -65,5 +65,6 @@ struct SecondTabScreen: View {
 struct SecondTabScreen_Previews: PreviewProvider {
     static var previews: some View {
         SecondTabScreen()
+            .environmentObject(ItemsViewModel())
     }
 }
