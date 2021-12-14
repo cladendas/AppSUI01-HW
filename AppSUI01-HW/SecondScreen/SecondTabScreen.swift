@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct Item: Identifiable {
-    var id: String { name }
-    var name: String
-}
-
-final class ItemsViewModel: ObservableObject {
+struct SecondTabScreen: View {
     
-    @Published var selectedTab: String? = nil
-    @Published private(set) var items = [
-        Item(name: "FirstItem"),
-        Item(name: "SecondItem"),
-        Item(name: "ThirdItem")
-    ]
+    private var title: String = "SecondTabScreen"
+    
+    @ObservedObject var itemsForSecondScreen: ItemsViewModel = .init()
+    
+    var body: some View {
+        NavigationView() {
+            ItemList()
+                .environmentObject(itemsForSecondScreen)
+                .navigationBarTitle(title)
+        }
+    }
 }
 
 struct ItemView: View {
@@ -47,24 +47,8 @@ struct ItemList: View {
     }
 }
 
-struct SecondTabScreen: View {
-    
-    private var title: String = "SecondTabScreen"
-    
-    @ObservedObject var itemsForSecondScreen: ItemsViewModel = .init()
-    
-    var body: some View {
-        NavigationView() {
-            ItemList()
-                .environmentObject(ItemsViewModel())
-                .navigationBarTitle(title)
-        }
-    }
-}
-
 struct SecondTabScreen_Previews: PreviewProvider {
     static var previews: some View {
         SecondTabScreen()
-            .environmentObject(ItemsViewModel())
     }
 }

@@ -30,6 +30,5 @@ struct FirstTabScreen: View {
 struct FirstTabScreen_Previews: PreviewProvider {
     static var previews: some View {
         FirstTabScreen(tabSelection: .constant(1))
-            .environmentObject(ItemsViewModel())
     }
 }
