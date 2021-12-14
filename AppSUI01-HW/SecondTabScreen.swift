@@ -12,7 +12,7 @@ struct Item: Identifiable {
     var name: String
 }
 
-final class ItemsForSecondScreen: ObservableObject {
+final class ItemsViewModel: ObservableObject {
     
     @Published var selectedTab: String? = nil
     @Published private(set) var items = [
@@ -33,13 +33,13 @@ struct ItemView: View {
 
 struct ItemList: View {
     
-    @EnvironmentObject var itemsForSecondScreen: ItemsForSecondScreen
+    @EnvironmentObject var itemsViewModel: ItemsViewModel
     
     var body: some View {
         List {
-            ForEach(itemsForSecondScreen.items) { item in
+            ForEach(itemsViewModel.items) { item in
                 NavigationLink(tag: item.name,
-                               selection: $itemsForSecondScreen.selectedTab,
+                               selection: $itemsViewModel.selectedTab,
                                destination: { ItemView(title: item.name) },
                                label: { Label(item.name, systemImage: "person.2.wave.2.fill") })
             }
