@@ -11,12 +11,9 @@ struct SecondTabScreen: View {
     
     private var title: String = "SecondTabScreen"
     
-    @ObservedObject var itemsForSecondScreen: ItemsViewModel = .init()
-    
     var body: some View {
         NavigationView() {
             ItemList()
-                .environmentObject(itemsForSecondScreen)
                 .navigationBarTitle(title)
         }
     }

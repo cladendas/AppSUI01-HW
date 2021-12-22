@@ -14,13 +14,13 @@ struct ContentView: View {
         TabView(selection: $selection) {
             FirstTabScreen(tabSelection: .constant(1))
                 .tabItem {
-                    Label("FirstTabScreen", systemImage: "person.fill")
+                    Label("FirstTabScreen", systemImage: "person.fill").tag(0)
                 }
                 .tag(0)
             
             SecondTabScreen()
                 .tabItem {
-                    Label("SecondTabScreen", systemImage: "person.2.fill")
+                    Label("SecondTabScreen", systemImage: "person.2.fill").tag(1)
                 }
                 .tag(1)
             
