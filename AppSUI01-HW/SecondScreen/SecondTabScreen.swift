@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///вью второго экрана
 struct SecondTabScreen: View {
     
     private var title: String = "SecondTabScreen"
@@ -19,6 +20,7 @@ struct SecondTabScreen: View {
     }
 }
 
+///вью элемента второго экрана
 struct ItemView: View {
 
     var title: String
@@ -28,6 +30,7 @@ struct ItemView: View {
     }
 }
 
+///вью списка элементов второго экрана
 struct ItemList: View {
     
     @EnvironmentObject var itemsViewModel: ItemsViewModel

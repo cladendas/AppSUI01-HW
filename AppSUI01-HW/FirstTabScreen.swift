@@ -10,23 +10,21 @@ import SwiftUI
 struct FirstTabScreen: View {
     
     @EnvironmentObject var itemsViewModel: ItemsViewModel
-    @Binding var tabSelection: Int
+    @State var selectedTab: String = ""
     
     var body: some View {
         
         VStack {
             ActivityView()
             Button("Open Second Screen") {
-                self.tabSelection = 1
-                self.itemsViewModel.selectedTab = "FirstItem"
+                self.itemsViewModel.selectedTab = selectedTab
             }
         }
-        
     }
 }
 
 struct FirstTabScreen_Previews: PreviewProvider {
     static var previews: some View {
-        FirstTabScreen(tabSelection: .constant(1))
+        FirstTabScreen()
     }
 }

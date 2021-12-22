@@ -9,18 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State var selection: Int = 0
+    @State var selectedTab: String = "SecondItem"
     var body: some View {
         
         TabView(selection: $selection) {
-            FirstTabScreen(tabSelection: .constant(1))
+            FirstTabScreen(selectedTab: selectedTab)
                 .tabItem {
-                    Label("FirstTabScreen", systemImage: "person.fill").tag(0)
+                    Label("FirstTabScreen", systemImage: "person.fill")
                 }
                 .tag(0)
             
             SecondTabScreen()
                 .tabItem {
-                    Label("SecondTabScreen", systemImage: "person.2.fill").tag(1)
+                    Label("SecondTabScreen", systemImage: "person.2.fill")
                 }
                 .tag(1)
             
