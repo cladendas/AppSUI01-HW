@@ -15,9 +15,7 @@ struct FirstTabScreen: View {
     var body: some View {
         
         VStack {
-            
             ActivityView()
-            
             Button("Open Second Screen") {
                 self.tabSelection = 1
                 self.itemsViewModel.selectedTab = "FirstItem"

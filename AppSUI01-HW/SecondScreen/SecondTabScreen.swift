@@ -36,13 +36,11 @@ struct ItemList: View {
     @EnvironmentObject var itemsViewModel: ItemsViewModel
     
     var body: some View {
-        List {
-            ForEach(itemsViewModel.items) { item in
+        List(itemsViewModel.items) { item in
                 NavigationLink(tag: item.name,
                                selection: $itemsViewModel.selectedTab,
                                destination: { ItemView(title: item.name) },
                                label: { Label(item.name, systemImage: "person.2.wave.2.fill") })
-            }
         }
     }
 }
